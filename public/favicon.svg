@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+  <!-- Rounded Wallet Base -->
+  <rect x="4" y="8" width="24" height="18" rx="4" fill="#00e5a0" />
+  <!-- Secondary Flap with "Lens" button -->
+  <path d="M22 12h6v10h-6a4 4 0 0 1 0-8z" fill="#00b37e" />
+  <!-- The "Sight" (Lens/Insight element) -->
+  <circle cx="22" cy="17" r="2.5" fill="white" />
+  <circle cx="22" cy="17" r="1" fill="#00b37e" />
+  <!-- Sparkle of insight -->
+  <path d="M10 14l2 2-2 2M14 14l2 2-2 2" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+</svg>

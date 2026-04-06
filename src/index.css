@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00e5a0;
+  --color-primary-dark: #00b37e;
+  
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-text-main: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border-main: #e2e8f0;
+
+  --font-mono: "DM Mono", monospace;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@utility card-gradient-top {
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, #00e5a0, #3b82f6, #8b5cf6);
+    z-index: 10;
+  }
+}
+
+@keyframes slow-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, 
+    var(--color-background), 
+    #00e5a015, 
+    var(--color-background), 
+    #3b82f615
+  );
+  background-size: 400% 400%;
+  animation: slow-gradient 20s ease infinite;
+}
+
+.dark .animated-bg {
+  background: linear-gradient(-45deg, 
+    var(--color-background), 
+    rgba(0, 229, 160, 0.15), 
+    var(--color-background), 
+    rgba(59, 130, 246, 0.15),
+    var(--color-background)
+  );
+  background-size: 400% 400%;
+}
+
+body {
+  font-family: var(--font-sans);
+  @apply bg-background text-text-main;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark theme overrides using CSS variables */
+.dark {
+  color-scheme: dark;
+  --color-background: #020617;
+  --color-surface: #0f172a;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-border-main: #1e293b;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
